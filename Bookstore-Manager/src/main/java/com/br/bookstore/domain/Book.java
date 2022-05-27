@@ -26,6 +26,17 @@ public class Book {
     }
 
     @Override
+    public String toString(){
+        return "-" + this.name + "-" +
+                "\nwriter: " + this.writer+
+                "\npublisher: " + this.publisher+
+                "\ngenre: " + this.genre+
+                "\ndate: "+ this.publicationDate.toString()+
+                "\npages: " + this.pages+
+                "\nprice: " + this.price;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Book){
             Book book = (Book) o;

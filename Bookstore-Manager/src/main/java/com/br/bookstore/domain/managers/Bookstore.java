@@ -19,6 +19,17 @@ public class Bookstore implements BooksManager {
     }
 
     @Override
+    public String toString(){
+        String out = "";
+
+        for(Book book : this.books){
+            out += book + "\n --------------------\n";
+        }
+
+        return out;
+    }
+
+    @Override
     public void addBooks(Book... books) {
         this.books.addAll(Arrays.asList(books));
     }

@@ -5,7 +5,6 @@ import com.br.bookstore.domain.Genre;
 import com.br.bookstore.domain.managers.Bookstore;
 
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Teste {

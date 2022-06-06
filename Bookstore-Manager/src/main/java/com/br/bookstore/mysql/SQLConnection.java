@@ -11,22 +11,30 @@ public class SQLConnection {
 
     public static Connection getSQLConnection(){
         try{
-            propertiesDatabase.load(SQLConnection.class.getResourceAsStream("com/br/bookstore/mysql/properties.properties"));
+            propertiesDatabase.load(SQLConnection.class.getResourceAsStream("/com/br/bookstore/mysql/properties.properties"));
         }catch (IOException e){
             e.printStackTrace();
+            return null;
         }
 
         String url = propertiesDatabase.getProperty("banco.url");
         String user = propertiesDatabase.getProperty("banco.user");
         String password = propertiesDatabase.getProperty("banco.password");
 
-//        try{
-//            return connection = DriverManager.getConnection(url, user, password);
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-        System.out.println(url + " " + user + " " + password);
+        try{
+            return connection = DriverManager.getConnection(url, user, password);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
         return null;
+    }
+
+    public static void closeSQLConnection(){
+        try{
+            connection.close();
+        }catch (SQLException exception){
+            exception.printStackTrace();
+        }
     }
 }
